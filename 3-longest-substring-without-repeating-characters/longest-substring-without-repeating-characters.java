@@ -19,22 +19,24 @@ class Solution {
 
 // }
 
-HashMap<Character, Integer> map = new HashMap<>(); // char -> last seen index
-        int left = 0;
+int[] lastIndex = new int[128]; // ASCII chars
+        Arrays.fill(lastIndex, -1);
+        
         int maxLen = 0;
-
+        int left = 0;
+        
         for (int right = 0; right < s.length(); right++) {
             char c = s.charAt(right);
-
-            if (map.containsKey(c) && map.get(c) >= left) {
-                // duplicate mila jo current window ke andar hai
-                left = map.get(c) + 1;   // seedha jump karo duplicate ke aage
+            
+            // agar current char pehle already window ke andar dikha hai
+            if (lastIndex[c] >= left) {
+                left = lastIndex[c] + 1; // window shrink karo
             }
-
-            map.put(c, right);   // last seen index update karo
+            
+            lastIndex[c] = right; // update last seen index
             maxLen = Math.max(maxLen, right - left + 1);
         }
-
+        
         return maxLen;
     }
 }
