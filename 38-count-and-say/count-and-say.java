@@ -2,7 +2,6 @@ class Solution {
     public String countAndSay(int n) {
         String result = "1"; 
         
-        // n=1 se n tak build karte jao
         for (int i = 2; i <= n; i++) {
             result = describe(result);
         }
