@@ -14,5 +14,5 @@ private boolean dfs(char[][] board, int r, int c, String word, int idx) {
                  || dfs(board, r, c+1, word, idx+1) || dfs(board, r, c-1, word, idx+1);
     board[r][c] = temp;
     return found;
-}
-}
+
+}}
