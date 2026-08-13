@@ -9,7 +9,7 @@ private boolean dfs(char[][] board, int r, int c, String word, int idx) {
     if (idx == word.length()) return true;
     if (r < 0 || c < 0 || r >= board.length || c >= board[0].length || board[r][c] != word.charAt(idx)) return false;
     char temp = board[r][c];
-    board[r][c] = '#'; // mark visited
+    board[r][c] = '#'; 
     boolean found = dfs(board, r+1, c, word, idx+1) || dfs(board, r-1, c, word, idx+1)
                  || dfs(board, r, c+1, word, idx+1) || dfs(board, r, c-1, word, idx+1);
     board[r][c] = temp;
