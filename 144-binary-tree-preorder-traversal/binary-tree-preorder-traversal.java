@@ -16,14 +16,14 @@
 class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
     List<Integer> res = new ArrayList<>();
-    postorder(root, res);
+    preorder(root, res);
     return res;
 }
-private void postorder(TreeNode node, List<Integer> res) {
+private void preorder(TreeNode node, List<Integer> res) {
     if (node == null) return;
     res.add(node.val);
-    postorder(node.left, res);
+    preorder(node.left, res);
     
-    postorder(node.right, res);
+    preorder(node.right, res);
 }
     }
