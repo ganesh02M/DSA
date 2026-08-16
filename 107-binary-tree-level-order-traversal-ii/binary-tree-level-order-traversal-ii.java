@@ -28,9 +28,9 @@ class Solution {
             if (node.left != null) queue.offer(node.left);
             if (node.right != null) queue.offer(node.right);
         }
-        res.addFirst(level);
+        res.add(level);
     }
-    //   Collections.reverse(res);
+     Collections.reverse(res);
     return res;
 
     }
