@@ -17,7 +17,7 @@ class Solution {
     public int kthSmallest(TreeNode root, int k) {
     List<Integer> result = new ArrayList<>();
     inorder(root, result);
-    return result.get(k - 1);   // k-1, kyunki list 0-indexed hai
+    return result.get(k - 1);   
 }
 
 private void inorder(TreeNode node, List<Integer> result) {
