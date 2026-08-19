@@ -1,0 +1,26 @@
+class Solution {
+   public int maxNumberOfFamilies(int n, int[][] reservedSeats) {
+    Map<Integer, Integer> map = new HashMap<>();
+    for (int[] seat : reservedSeats) {
+        int row = seat[0], col = seat[1];
+        if (col < 2 || col > 9) continue;
+        int bit = 1 << (col - 2);
+        map.put(row, map.getOrDefault(row, 0) | bit);
+    }
+
+    int left = 0b00001111;   
+    int middle = 0b00111100;  
+    int right = 0b11110000;   
+
+    int count = (n - map.size()) * 2;
+
+    for (int mask : map.values()) {
+        if ((mask & left) == 0 && (mask & right) == 0) {
+            count += 2;
+        } else if ((mask & left) == 0 || (mask & middle) == 0 || (mask & right) == 0) {
+            count += 1;
+        }
+    }
+    return count;
+}
+}
