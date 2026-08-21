@@ -6,8 +6,8 @@ class Solution {
         int[] indegree = new int[numCourses];
 
         for (int[] p : prerequisites) {
-            adj.get(p[1]).add(p[0]);   // FIX: b → a (b pehle chahiye)
-            indegree[p[0]]++;           // FIX: a ki indegree badhao
+            adj.get(p[1]).add(p[0]);   
+            indegree[p[0]]++;           
         }
 
         Queue<Integer> queue = new LinkedList<>();
@@ -23,9 +23,9 @@ class Solution {
             }
         }
 
-        if (order.size() != numCourses) return new int[0];   // FIX: n → numCourses, aur int[] return
+        if (order.size() != numCourses) return new int[0];  
 
-        // FIX: List<Integer> ko int[] me convert karo
+        
         int[] result = new int[order.size()];
         for (int i = 0; i < order.size(); i++) {
             result[i] = order.get(i);
